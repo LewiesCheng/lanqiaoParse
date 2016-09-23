@@ -47,6 +47,7 @@ public class DownloadServlet extends HttpServlet {
 		generateFile(checkbox);
 		fileDown(response, "result.xlsx");
 		response.sendRedirect("download.jsp");
+		
 	}
 
 	private boolean contains (String[] selected, String value) {
