@@ -48,18 +48,11 @@ public class DownloadServlet extends HttpServlet {
 		filename = "lanqiaoParse" + simpleDateFormat.format(new Date()) + ".xlsx";
 
 		String[] checkbox = request.getParameterValues("school");
-
-		generateFile(checkbox);
-		fileDown(response, "result.xlsx");
-		response.sendRedirect("download.jsp");
-		
-
 		SortedMap<String, Reward> rewards = generateRewards(checkbox);
 		printRewards(rewards);
 		SortedMap<String, BinJiang> students = generateStudent();
 		printStudents(students);
 		fileDownload(response);
-
 	}
 
 	private SortedMap<String, BinJiang> generateStudent () {
